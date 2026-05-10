@@ -1,0 +1,294 @@
+// ============================================================
+// SHAIKH RACE — Global SCSS Design System
+// Dark Neon Theme
+// ============================================================
+
+// ----- FONT IMPORT -----
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+// ----- NEON COLOR PALETTE -----
+:root {
+  // Primary Neons
+  --neon-cyan:       #00f5ff;
+  --neon-magenta:    #ff00aa;
+  --neon-lime:       #b3ff00;
+  --neon-orange:     #ff6b00;
+  --neon-purple:     #a855f7;
+  --neon-blue:       #0066ff;
+  --neon-red:        #ff2244;
+  --neon-green:      #00ff7f;
+  --neon-yellow:     #ffe600;
+
+  // Background Layers
+  --bg-void:         #020408;
+  --bg-deep:         #050c14;
+  --bg-surface:      #0a1628;
+  --bg-elevated:     #0f2040;
+  --bg-card:         #111e30;
+  --bg-glass:        rgba(10, 22, 40, 0.75);
+
+  // Borders & Dividers
+  --border-subtle:   rgba(0, 245, 255, 0.12);
+  --border-glow:     rgba(0, 245, 255, 0.4);
+  --border-active:   rgba(0, 245, 255, 0.8);
+
+  // Text
+  --text-primary:    #e8f4ff;
+  --text-secondary:  #7aa8cc;
+  --text-muted:      #3d6080;
+  --text-neon:       var(--neon-cyan);
+
+  // HUD Colors
+  --hud-health:      var(--neon-green);
+  --hud-nitro:       var(--neon-cyan);
+  --hud-speed:       var(--neon-orange);
+  --hud-coins:       var(--neon-yellow);
+
+  // Shadows & Glows
+  --glow-cyan:       0 0 8px rgba(0, 245, 255, 0.6), 0 0 20px rgba(0, 245, 255, 0.3);
+  --glow-magenta:    0 0 8px rgba(255, 0, 170, 0.6), 0 0 20px rgba(255, 0, 170, 0.3);
+  --glow-lime:       0 0 8px rgba(179, 255, 0, 0.6), 0 0 20px rgba(179, 255, 0, 0.3);
+  --glow-orange:     0 0 8px rgba(255, 107, 0, 0.6), 0 0 20px rgba(255, 107, 0, 0.3);
+  --glow-red:        0 0 8px rgba(255, 34, 68, 0.6), 0 0 20px rgba(255, 34, 68, 0.3);
+
+  // Typography
+  --font-display:    'Orbitron', monospace;
+  --font-heading:    'Rajdhani', sans-serif;
+  --font-body:       'Inter', sans-serif;
+
+  // Spacing Scale
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+
+  // Border Radius
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  // Transitions
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Z-Index Layers
+  --z-canvas:     0;
+  --z-hud:       10;
+  --z-overlay:   20;
+  --z-modal:     30;
+  --z-toast:     40;
+  --z-tooltip:   50;
+}
+
+// ----- MIXINS -----
+@mixin neon-text($color) {
+  color: $color;
+  text-shadow: 0 0 6px $color, 0 0 20px rgba($color, 0.5);
+}
+
+@mixin neon-border($color, $width: 1px) {
+  border: $width solid $color;
+  box-shadow: 0 0 8px rgba($color, 0.4), inset 0 0 8px rgba($color, 0.1);
+}
+
+@mixin glassmorphism($blur: 12px, $bg: var(--bg-glass)) {
+  background: $bg;
+  backdrop-filter: blur($blur) saturate(180%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+@mixin hud-panel {
+  @include glassmorphism(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+// ----- RESET & BASE -----
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow: hidden; // game viewport takes full screen
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+// ----- TYPOGRAPHY -----
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.display-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-magenta) 50%, var(--neon-lime) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.1em;
+}
+
+.text-neon-cyan    { color: var(--neon-cyan);    text-shadow: var(--glow-cyan); }
+.text-neon-magenta { color: var(--neon-magenta); text-shadow: var(--glow-magenta); }
+.text-neon-orange  { color: var(--neon-orange);  text-shadow: var(--glow-orange); }
+.text-neon-lime    { color: var(--neon-lime);     text-shadow: var(--glow-lime); }
+.text-neon-red     { color: var(--neon-red);      text-shadow: var(--glow-red); }
+
+// ----- GAME LAYOUT -----
+#game-root {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-void);
+}
+
+// ----- PROGRESS BARS -----
+.bar-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+
+  .bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 4px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-full);
+      filter: blur(2px);
+    }
+  }
+
+  &.health   .bar-fill { background: var(--hud-health);  box-shadow: var(--glow-cyan); }
+  &.nitro    .bar-fill { background: var(--hud-nitro);   box-shadow: var(--glow-cyan); }
+  &.speed    .bar-fill { background: var(--hud-speed);   box-shadow: var(--glow-orange); }
+}
+
+// ----- BUTTONS -----
+.btn-neon {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid currentColor;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  &:hover::before { opacity: 0.1; }
+  &:active::before { opacity: 0.2; }
+
+  &.btn-cyan    { color: var(--neon-cyan);    box-shadow: var(--glow-cyan); }
+  &.btn-magenta { color: var(--neon-magenta); box-shadow: var(--glow-magenta); }
+  &.btn-orange  { color: var(--neon-orange);  box-shadow: var(--glow-orange); }
+}
+
+// ----- SCROLLBAR (hidden) -----
+::-webkit-scrollbar { display: none; }
+
+// ----- ANIMATIONS -----
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%           { opacity: 0.8; }
+  97%           { opacity: 1; }
+  98%           { opacity: 0.6; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slide-in-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes nitro-flash {
+  0%, 100% { opacity: 0.6; filter: brightness(1); }
+  50%       { opacity: 1;   filter: brightness(1.5); }
+}
+
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-flicker    { animation: flicker 4s linear infinite; }
+.animate-slide-up   { animation: slide-in-up 0.4s ease-out; }
+.animate-nitro      { animation: nitro-flash 0.3s ease-in-out infinite; }

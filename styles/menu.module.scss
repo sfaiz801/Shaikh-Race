@@ -1,0 +1,125 @@
+// ============================================================
+// SHAIKH RACE — Main Menu SCSS Module
+// ============================================================
+
+.container {
+  position: fixed; inset: 0;
+  background: var(--bg-void);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.backgroundScroller {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px);
+  transform-origin: bottom center;
+  animation: gridScroll 2s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+  
+  &::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, transparent, var(--bg-void) 80%);
+  }
+}
+
+@keyframes gridScroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 50px; }
+}
+
+.content {
+  position: relative; z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+
+  &::before {
+    content: '';
+    position: absolute; left: 0; top: 0; height: 100%; width: 4px;
+    background: var(--neon-cyan);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.3), inset 0 0 15px rgba(0, 245, 255, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+    
+    &::before {
+      width: 100%;
+      opacity: 0.2;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Special glow for play button
+.btnPlay {
+  border-color: var(--neon-magenta);
+  
+  &::before {
+    background: var(--neon-magenta);
+  }
+
+  &:hover {
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4), inset 0 0 15px rgba(255, 0, 110, 0.2);
+  }
+}

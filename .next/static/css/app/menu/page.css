@@ -1,0 +1,202 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./components/ui/DailyReward.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.DailyReward_overlay__E7Nr6 {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-family: var(--font-display);
+}
+
+.DailyReward_modal__YZkS4 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 230, 0, 0.1);
+}
+
+.DailyReward_coinIcon__JIk8M {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255, 230, 0, 0.5));
+}
+
+.DailyReward_title__aJ01J {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.DailyReward_streak__e5Zed {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: rgba(255, 230, 0, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.DailyReward_message__7EEUa {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+.DailyReward_claimBtn__RONoh {
+  width: 100%;
+  background: var(--neon-yellow);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 230, 0, 0.4);
+  transition: all 0.3s;
+}
+.DailyReward_claimBtn__RONoh:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 230, 0, 0.6);
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./styles/menu.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu_container__cnUX2 {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-void);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu_backgroundScroller__CWfGV {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px);
+  transform-origin: bottom center;
+  animation: menu_gridScroll__42s05 2s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+.menu_backgroundScroller__CWfGV::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, transparent, var(--bg-void) 80%);
+}
+
+@keyframes menu_gridScroll__42s05 {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 50px;
+  }
+}
+.menu_content__j_Isq {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+.menu_logo__hx_9r {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu_buttonGroup__Qd2jl {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.menu_btn__O9qWv {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+}
+.menu_btn__O9qWv::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--neon-cyan);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+.menu_btn__O9qWv:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3), inset 0 0 15px rgba(0, 245, 255, 0.1);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.menu_btn__O9qWv:hover::before {
+  width: 100%;
+  opacity: 0.2;
+}
+.menu_btn__O9qWv:active {
+  transform: scale(0.98);
+}
+
+.menu_btnPlay__a_eYK {
+  border-color: var(--neon-magenta);
+}
+.menu_btnPlay__a_eYK::before {
+  background: var(--neon-magenta);
+}
+.menu_btnPlay__a_eYK:hover {
+  border-color: var(--neon-magenta);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.4), inset 0 0 15px rgba(255, 0, 110, 0.2);
+}

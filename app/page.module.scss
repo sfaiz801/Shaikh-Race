@@ -1,0 +1,427 @@
+// ============================================================
+// SHAIKH RACE — Page Module SCSS
+// Main menu, garage, game-over screens
+// ============================================================
+
+// ── LOADING ─────────────────────────────────────────────────
+.loadingScreen {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: var(--bg-void);
+  gap: 20px;
+}
+
+.loadingSpinner {
+  width: 48px; height: 48px;
+  border: 3px solid rgba(0, 245, 255, 0.15);
+  border-top-color: var(--neon-cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+// ── MAIN MENU ────────────────────────────────────────────────
+.menu {
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, #071220 0%, var(--bg-void) 70%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+.scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menuContent {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 24px;
+  padding: 40px 32px;
+  animation: fadeUp 0.5s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── TITLE ───────────────────────────────────────────────────
+.titleBlock {
+  text-align: center;
+}
+
+.titleMain {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-magenta) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  filter: drop-shadow(0 0 24px rgba(0, 245, 255, 0.4));
+}
+
+.titleSub {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.6em;
+  color: var(--neon-orange);
+  text-shadow: var(--glow-orange);
+  margin-top: -8px;
+}
+
+.titleLine {
+  width: 120px; height: 2px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+// ── CAR PREVIEW ─────────────────────────────────────────────
+.carPreview {
+  display: flex; align-items: center; gap: 16px;
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  border-radius: 12px;
+  padding: 12px 20px;
+  min-width: 240px;
+}
+
+.carIcon {
+  width: 44px; height: 28px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.carInfo {
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+.carName {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.miniStats {
+  display: flex; gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+}
+
+// ── WALLET ──────────────────────────────────────────────────
+.walletDisplay {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.walletIcon {
+  font-size: 1rem;
+  color: var(--neon-yellow);
+  filter: drop-shadow(0 0 6px var(--neon-yellow));
+}
+
+.walletAmount {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px var(--neon-yellow);
+}
+
+.walletLabel {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+// ── HIGH SCORE ──────────────────────────────────────────────
+.highScore {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+
+.highScoreLabel {
+  color: var(--text-muted);
+}
+
+.highScoreValue {
+  color: var(--neon-magenta);
+  text-shadow: 0 0 8px var(--neon-magenta);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+// ── BUTTONS ─────────────────────────────────────────────────
+.menuButtons {
+  display: flex; flex-direction: column; gap: 12px;
+  width: 100%; max-width: 260px;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 14px 24px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,0.08);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  &:hover::after { opacity: 1; }
+  &:active { transform: scale(0.97); }
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #004466 0%, #006688 100%);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btnHovered {
+  box-shadow: 0 0 32px rgba(0, 245, 255, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btnBack {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 16px;
+  font-size: 0.65rem;
+  width: auto;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+// ── GAME OVER ───────────────────────────────────────────────
+.gameOver {
+  position: fixed; inset: 0;
+  background: rgba(2, 4, 8, 0.92);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.gameOverContent {
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 34, 68, 0.3);
+  border-radius: 20px;
+  padding: 40px 48px;
+  box-shadow: 0 0 60px rgba(255, 34, 68, 0.15);
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 300px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.gameOverTitle {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: var(--neon-red);
+  text-shadow: 0 0 20px var(--neon-red), 0 0 40px rgba(255, 34, 68, 0.3);
+}
+
+.gameOverStats {
+  width: 100%;
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.statRow {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.statVal {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.coinColor { color: var(--neon-yellow); text-shadow: 0 0 8px var(--neon-yellow); }
+
+.statRowHighlight {
+  .statVal { color: var(--neon-magenta); text-shadow: 0 0 8px var(--neon-magenta); }
+}
+
+// ── GARAGE ──────────────────────────────────────────────────
+.garage {
+  position: fixed; inset: 0;
+  background: var(--bg-deep);
+  overflow-y: auto;
+  padding: 0 0 40px;
+}
+
+.garageHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(5, 12, 20, 0.8);
+  backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 10;
+}
+
+.garageTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.garageWallet {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 8px var(--neon-yellow);
+  letter-spacing: 0.1em;
+}
+
+.carGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 24px;
+}
+
+.carCard {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex; flex-direction: column; gap: 10px;
+
+  &:hover {
+    border-color: rgba(0, 245, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.carCardActive {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+.carCardLocked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  &:hover { transform: none; }
+}
+
+.carCardSwatch {
+  width: 100%; height: 36px;
+  border-radius: 8px;
+}
+
+.carCardName {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.lockBadge {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.carCardStats {
+  display: flex; flex-direction: column; gap: 5px;
+}
+
+.miniBar {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.miniBarTrack {
+  flex: 1; height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px; overflow: hidden;
+}
+
+.miniBarFill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}

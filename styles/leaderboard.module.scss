@@ -1,0 +1,135 @@
+// ============================================================
+// SHAIKH RACE — Leaderboard SCSS Module
+// ============================================================
+
+.container {
+  position: fixed; inset: 0;
+  background: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  margin-bottom: 30px;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-35px);
+}
+
+.tableContainer {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.th {
+  font-family: var(--font-display);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.row {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(5px);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.01);
+    background: rgba(255,255,255,0.05);
+  }
+}
+
+.currentUserRow {
+  background: rgba(0, 245, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+
+  &:hover {
+    background: rgba(0, 245, 255, 0.15);
+  }
+  
+  td {
+    color: var(--neon-cyan);
+    font-weight: 700;
+  }
+}
+
+.td {
+  padding: 15px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  
+  &:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  
+  &:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-family: var(--font-display);
+    color: var(--neon-yellow);
+  }
+}
+
+.rank1 { color: #ffd700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+.rank2 { color: #c0c0c0; text-shadow: 0 0 10px rgba(192, 192, 192, 0.5); }
+.rank3 { color: #cd7f32; text-shadow: 0 0 10px rgba(205, 127, 50, 0.5); }
+
+@media (max-width: 600px) {
+  .th, .td {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  .hideMobile {
+    display: none;
+  }
+}

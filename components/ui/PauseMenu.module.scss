@@ -1,0 +1,136 @@
+// ============================================================
+// SHAIKH RACE — PauseMenu SCSS Module
+// ============================================================
+
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(2, 4, 8, 0.78);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 245, 255, 0.22);
+  border-radius: 20px;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  min-width: 280px;
+  box-shadow:
+    0 0 60px rgba(0, 245, 255, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.6);
+}
+
+.pauseIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px var(--neon-cyan));
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.35em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 16px rgba(0, 245, 255, 0.5);
+  margin: 0;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 13px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  width: 100%;
+  transition: all 0.18s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.btnPrimary {
+  background: rgba(0, 100, 136, 0.4);
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.2);
+
+  &:hover {
+    box-shadow: 0 0 28px rgba(0, 245, 255, 0.4);
+    background: rgba(0, 100, 136, 0.6);
+  }
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border-color: rgba(255, 255, 255, 0.12);
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.btnDanger {
+  background: rgba(255, 34, 68, 0.08);
+  color: var(--neon-red);
+  border-color: rgba(255, 34, 68, 0.3);
+
+  &:hover {
+    background: rgba(255, 34, 68, 0.15);
+    border-color: var(--neon-red);
+    box-shadow: 0 0 16px rgba(255, 34, 68, 0.2);
+  }
+}
+
+.hint {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 24px;
+    min-width: 240px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}
